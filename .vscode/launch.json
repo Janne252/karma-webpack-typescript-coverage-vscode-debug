@@ -12,6 +12,17 @@
             "port": 9333,
             "webRoot": "${workspaceRoot}",
             "sourceMaps": true,
+            // https://github.com/microsoft/vscode-chrome-debug#other-optional-launch-config-fields
+            "breakOnLoad": true,
+            "breakOnLoadStrategy": "instrument",
+
+            // https://github.com/microsoft/vscode-chrome-debug#sourcemaps
+            "sourceMapPathOverrides": {
+                "webpack:///./~/*": "${webRoot}/node_modules/*",
+                "webpack:///./*":   "${webRoot}/*",
+                "webpack:///*":     "*",
+                "webpack:///src/*": "${webRoot}/*",
+            }
         }
     ]
 }
